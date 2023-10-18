@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 import ListFlat from './ListaFlat';
 import ListaSection from './ListaSection';
-import { Props } from './App';
+import {HomeProps} from './types';
+import ExemploStylesText from './ExemploStylesText';
 
 const lista = [
   {key: 1, descricao: 'teste'},
@@ -21,14 +22,16 @@ const lista = [
   {key: 4, descricao: 'abobrinha'},
 ];
 
-const Principal = ({ navigation, route }: Props) => {
+const Principal = ({navigation, route}: HomeProps) => {
   return (
     <>
-
       <Button
-      title="Go to Details"
-      onPress={() => navigation.navigate('Detalhes')} />
-    
+        title="Go to Details"
+        onPress={() => navigation.navigate('Detalhes')}
+      />
+
+      <ExemploStylesText />
+
       <ListFlat array={lista} />
 
       <ListFlat array={lista} />
