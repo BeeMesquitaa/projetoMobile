@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import {HomeProps} from './types';
 import ExemploStylesView from './ExemploStyleView';
-
 import auth from '@react-native-firebase/auth';
 import {useState} from 'react';
 
@@ -22,13 +21,18 @@ const Tela_Login = ({navigation}: HomeProps) => {
   function logar() {
     setIsLoading(true);
 
-    auth()
-      .signInWithEmailAndPassword(email, senha)
-      .then(() => {
-        navigation.navigate('Home');
-      })
-      .catch(error => console.log(error))
-      .finally(() => setIsLoading(false));
+    try {
+      auth()
+        .signInWithEmailAndPassword(email, senha)
+        .then(() => {
+          navigation.navigate('Home');
+        })
+        .catch(error => console.log(error))
+        .finally(() => setIsLoading(false));
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   }
 
   function redefinirSenha() {
@@ -48,10 +52,12 @@ const Tela_Login = ({navigation}: HomeProps) => {
         </View>
 
         <Text style={styles.Email}>Email:</Text>
-        <TextInput style={styles.CaixaEmail} />
+        <TextInput style={styles.CaixaEmail}
+        onChangeText={(text) => {setEmail(text) }} />
 
         <Text style={styles.Senha}>Senha:</Text>
-        <TextInput style={styles.CaixaSenha} />
+        <TextInput style={styles.CaixaSenha} 
+        onChangeText={(text) => {setSenha(text) }}/>
 
         <Pressable
           style={styles.botaoAcessar}
@@ -64,13 +70,13 @@ const Tela_Login = ({navigation}: HomeProps) => {
         <View style={styles.Botoes}>
           <Pressable
             style={styles.botaoEsqueci}
-            onPress={() => navigation.navigate('Detalhes')}>
+            onPress={() => navigation.navigate('Esqueci')}>
             <Text style={{fontSize: 17, color: 'grey'}}>Esqueci a senha</Text>
           </Pressable>
 
           <Pressable
             style={styles.botaoCadastrar}
-            onPress={() => navigation.navigate('Detalhes')}>
+            onPress={() => navigation.navigate('Cadastrar')}>
             <Text style={{fontSize: 17, color: 'grey'}}>Cadastrar</Text>
           </Pressable>
         </View>

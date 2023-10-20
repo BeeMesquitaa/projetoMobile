@@ -4,10 +4,14 @@ type RootStackParamList = {
   Home: undefined;
   Detalhes: undefined;
   Login: undefined;
+  Cadastrar: undefined;
+  Esqueci: undefined;
 };
 
 type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
-export type {HomeProps, RootStackParamList, LoginProps};
+type CadastrarProps = NativeStackScreenProps<RootStackParamList, 'Cadastrar'>;
+
+export type {HomeProps, RootStackParamList, LoginProps, CadastrarProps};
