@@ -8,17 +8,18 @@ import {
   Image,
   Alert,
 } from 'react-native';
-import {HomeProps} from './types';
+import {CadastrarProps, HomeProps} from './types';
 import ExemploStylesView from './ExemploStyleView';
 import auth from '@react-native-firebase/auth';
 import {useState} from 'react';
 
-const Tela_Login = ({navigation}: HomeProps) => {
+const Tela_Login = ({navigation}: CadastrarProps) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   function logar() {
+    if(email && email){
     setIsLoading(true);
 
     try {
@@ -34,6 +35,7 @@ const Tela_Login = ({navigation}: HomeProps) => {
       setIsLoading(false);
     }
   }
+}
 
   function redefinirSenha() {
     auth()
@@ -61,7 +63,7 @@ const Tela_Login = ({navigation}: HomeProps) => {
 
         <Pressable
           style={styles.botaoAcessar}
-          onPress={() => navigation.navigate('Detalhes')}>
+          onPress={() => logar()}>
           <Text style={{fontSize: 25, color: 'black', fontStyle: 'italic'}}>
             ACESSAR
           </Text>
@@ -70,7 +72,7 @@ const Tela_Login = ({navigation}: HomeProps) => {
         <View style={styles.Botoes}>
           <Pressable
             style={styles.botaoEsqueci}
-            onPress={() => navigation.navigate('Esqueci')}>
+            onPress={() => redefinirSenha()}>
             <Text style={{fontSize: 17, color: 'grey'}}>Esqueci a senha</Text>
           </Pressable>
 
