@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 const DetalhesScreen = () => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Detalhes Screen</Text>
+      <Text>Detalhesss Screen</Text>
     </View>
   );
 };
