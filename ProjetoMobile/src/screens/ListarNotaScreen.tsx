@@ -1,11 +1,12 @@
 import Principal from '../layouts/Principal';
+import TelaListarNotas from '../layouts/TelaListarNotas';
 import { ListarNotaProps} from '../layouts/types';
 import {Text, View} from 'react-native';
 
 const ListarNotaScreen = ({navigation, route}: ListarNotaProps) => {
   return (
     <View style={{flex: 1}}>
-      {/* <Principal navigation={navigation} route={route} /> */}
+      <TelaListarNotas navigation={navigation} route={route} />
     </View>
   );
 };

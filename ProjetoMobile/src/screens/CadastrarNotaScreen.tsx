@@ -1,6 +1,7 @@
 import {Text, View} from 'react-native';
 import { CadastrarNotaProps } from '../layouts/types';
-import TelaCadastroNota from '../layouts/telaCadastroNota';
+import TelaCadastroNota from '../layouts/TelaCadastroNota';
+
 
 const CadastrarNotaScreen = ({navigation, route}: CadastrarNotaProps) => {
   return (

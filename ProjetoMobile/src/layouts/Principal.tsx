@@ -15,21 +15,25 @@ import ListaSection from './ListaSection';
 import {CadastrarNotaProps, HomeProps} from './types';
 import ExemploStylesText from './ExemploStylesText';
 
-
 const Principal = ({navigation, route}: CadastrarNotaProps) => {
   return (
     <View style={styles.fundoGeral}>
+      <View style={styles.viewVindo}>
+        <Text style={styles.Vindo}>Seja bem vindo!</Text>
+      </View>
 
-        <View>
-        <Text style={styles.Vindo}>Seja bem vindo</Text>
-        <Pressable
-            style={styles.botaoCadastrarNotas}
-            onPress={() => navigation.navigate('CadastrarNota')}>
-            <Text style={{fontSize: 17, color: 'black'}}>Cadastrar Nota</Text>
-          </Pressable>
-          </View>
+      <Pressable
+        style={styles.botaoCadastrarNotas}
+        onPress={() => navigation.navigate('CadastrarNota')}>
+        <Text style={{fontSize: 17, color: 'black'}}>Cadastrar Nota</Text>
+      </Pressable>
 
-        </View>
+      <Pressable
+        style={styles.botaoListarNotas}
+        onPress={() => navigation.navigate('ListarNota')}>
+        <Text style={{fontSize: 17, color: 'black'}}>Listar Nota</Text>
+      </Pressable>
+    </View>
   );
 };
 
@@ -42,11 +46,29 @@ const styles = StyleSheet.create({
   },
   Vindo: {
     color: 'black',
-    alignItems: 'center'
+    fontSize: 35 ,
+    textDecorationLine: 'underline',
+  },
+  viewVindo: {
+    alignItems: 'center',
+    marginTop: 35
   },
   botaoCadastrarNotas: {
-  backgroundColor: '#DCDCDC',
-  alignItems: 'center',
-  marginTop: 200
+    backgroundColor: '#DCDCDC',
+    alignItems: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 70,
+    borderRadius: 5,
+    elevation: 5
+  },
+  botaoListarNotas: {
+    backgroundColor: '#DCDCDC',
+    alignItems: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
+    borderRadius: 5,
+    elevation: 5
   }
-})
+});
